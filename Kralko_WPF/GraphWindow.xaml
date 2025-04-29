@@ -1,0 +1,36 @@
+﻿<Window x:Class="Kralko_WPF.GraphWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        xmlns:local="clr-namespace:Kralko_WPF"
+        mc:Ignorable="d"
+        Title="График массива Y" Height="600" Width="800" ResizeMode="CanMinimize">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Background="black" Foreground="white" BorderBrush="DimGray">
+            <MenuItem Header="Выход" Click="ExitMenuItem_Click"></MenuItem>
+            <MenuItem Header="Главная" Click="GoToFirstForm_Click"/>
+            <MenuItem Header="Справка" Click="HelpMenuItem_Click"/>
+            <MenuItem Header="Файл" >
+                <MenuItem Header="Сохранить" Click="GoToSaveForm_Click" Foreground="Black"/>
+                <MenuItem Header="Открыть" Click="GoToOutputForm_Click" Foreground="black"/>
+            </MenuItem >
+        </Menu>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- График OxyPlot -->
+        <oxy:PlotView x:Name="plotView" Grid.Row="0" Margin="5"/>
+
+        <!-- Панель с кнопками -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                <Button Content="В начало" Padding="5" Margin="5" Click="GoToFirstForm_Click" Background="black" Foreground="white" BorderBrush="DimGray"/>
+                <Button Content="Вывод данных" Padding="5" Margin="5" Click="GoToSecondForm_Click" Background="black" Foreground="white" BorderBrush="DimGray"/>
+        </StackPanel>
+    </Grid>
+    </DockPanel>
+</Window>

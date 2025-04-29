@@ -1,0 +1,36 @@
+﻿<Window x:Class="Kralko_WPF.SaveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kralko_WPF"
+        mc:Ignorable="d"
+        Title="SaveWindow" Height="800" Width="900">
+    <Grid>
+        <Menu Height="20" VerticalAlignment="Top" Background="black" Foreground="white" BorderBrush="DimGray">
+            <MenuItem Header="Главная" Click="GoToFirstForm_Click"></MenuItem>
+            <MenuItem Header="График" Click="GoToSecondForm_Click"></MenuItem>
+            <MenuItem Header="Справка" Click="HelpMenuItem_Click"></MenuItem>
+            <MenuItem Header="Файл" >
+                <MenuItem Header="Открыть" Click="GoToOutputForm_Click" Foreground="Black"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Border BorderBrush="DimGray" BorderThickness="2"
+                HorizontalAlignment="Center" VerticalAlignment="Top" 
+                Margin="50">
+                <FlowDocumentPageViewer x:Name="spravkaView" Width="750" Height="650">
+                    <FlowDocument ColumnWidth="950" ColumnGap="10">
+                        <Paragraph FontSize="15" x:Name="spravka"></Paragraph>
+                    </FlowDocument>
+                </FlowDocumentPageViewer>
+            </Border>
+        </Grid>
+        <Grid>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                <Button Margin="0, 30" Click="SaveButton_Click" Width="120" Background="black" Foreground="white" BorderBrush="DimGray">Сохранить</Button>
+                <Button Content="На главную" Width="120" Click="GoToFirstForm_Click" Margin="10 30" Background="black" Foreground="white" BorderBrush="DimGray"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
